@@ -6,7 +6,7 @@ document.onreadystatechange = function () {
     if (targetNode.length > 0) {
       targetNode = targetNode[0];
       targetNode.childNodes.forEach(ele => {
-        if (ele.nodeType == 1 && (ele.getElementsByClassName('WB_video  S_bg1 WB_video_mini WB_video_h5_v2').length > 0 || ele.getElementsByClassName('WB_video  S_bg1 WB_video_mini WB_video_a WB_video_h5_v2').length > 0)) {
+        if (ele.nodeType == 1 && (ele.getElementsByClassName('WB_video  S_bg1 WB_video_mini WB_video_h5_v2').length > 0 || ele.getElementsByClassName('WB_video  S_bg1 WB_video_mini WB_video_a WB_video_h5_v2').length > 0 || ele.getElementsByClassName('WB_video S_bg2 WB_video_mini WB_video_a WB_video_h5_v2').length > 0)) {
           if (ele.getElementsByClassName('down_button_class').length == 0) {
             setDownButton(ele);
           }
@@ -23,7 +23,7 @@ document.onreadystatechange = function () {
           switch (type) {
             case "childList":
               targetNode.childNodes.forEach(ele => { 
-                if (ele.nodeType == 1 && (ele.getElementsByClassName('WB_video  S_bg1 WB_video_mini WB_video_h5_v2').length > 0 || ele.getElementsByClassName('WB_video  S_bg1 WB_video_mini WB_video_a WB_video_h5_v2').length > 0)) {
+                if (ele.nodeType == 1 && (ele.getElementsByClassName('WB_video  S_bg1 WB_video_mini WB_video_h5_v2').length > 0 || ele.getElementsByClassName('WB_video  S_bg1 WB_video_mini WB_video_a WB_video_h5_v2').length > 0 || ele.getElementsByClassName('WB_video S_bg2 WB_video_mini WB_video_a WB_video_h5_v2').length > 0)) {
                   if (ele.getElementsByClassName('down_button_class').length == 0) {
                     setDownButton(ele);
                   }
@@ -32,7 +32,7 @@ document.onreadystatechange = function () {
               break;
             case "attributes":
               targetNode.childNodes.forEach(ele => {
-                if (ele.nodeType == 1 && (ele.getElementsByClassName('WB_video  S_bg1 WB_video_mini WB_video_h5_v2').length > 0 || ele.getElementsByClassName('WB_video  S_bg1 WB_video_mini WB_video_a WB_video_h5_v2').length > 0)) {
+                if (ele.nodeType == 1 && (ele.getElementsByClassName('WB_video  S_bg1 WB_video_mini WB_video_h5_v2').length > 0 || ele.getElementsByClassName('WB_video  S_bg1 WB_video_mini WB_video_a WB_video_h5_v2').length > 0 || ele.getElementsByClassName('WB_video S_bg2 WB_video_mini WB_video_a WB_video_h5_v2').length > 0)) {
                   if (ele.getElementsByClassName('down_button_class').length == 0) {
                     setDownButton(ele);
                   }
@@ -65,7 +65,7 @@ window.addEventListener('message', function (e) {
 }, false);
 
 function setDownButton(ele) {
-  let parentNode = ele.getElementsByClassName('WB_video  S_bg1 WB_video_mini WB_video_h5_v2').length > 0 ? ele.getElementsByClassName('WB_video  S_bg1 WB_video_mini WB_video_h5_v2')[0] : ele.getElementsByClassName('WB_video  S_bg1 WB_video_mini WB_video_a WB_video_h5_v2').length > 0 ? ele.getElementsByClassName('WB_video  S_bg1 WB_video_mini WB_video_a WB_video_h5_v2')[0] : '';
+  let parentNode = ele.getElementsByClassName('WB_video  S_bg1 WB_video_mini WB_video_h5_v2').length > 0 ? ele.getElementsByClassName('WB_video  S_bg1 WB_video_mini WB_video_h5_v2')[0] : ele.getElementsByClassName('WB_video  S_bg1 WB_video_mini WB_video_a WB_video_h5_v2').length > 0 ? ele.getElementsByClassName('WB_video  S_bg1 WB_video_mini WB_video_a WB_video_h5_v2')[0] : ele.getElementsByClassName('WB_video S_bg2 WB_video_mini WB_video_a WB_video_h5_v2').length > 0 ? ele.getElementsByClassName('WB_video S_bg2 WB_video_mini WB_video_a WB_video_h5_v2')[0] : '';
   if (parentNode != '' && parentNode.getElementsByClassName('down_button_class').length == 0) {
     let downButton = document.createElement('button');
     let videoNode = ele.getElementsByClassName('wbv-tech')
