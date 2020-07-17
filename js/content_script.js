@@ -68,14 +68,14 @@ function setDownButton(ele) {
   let parentNode = ele.getElementsByClassName('WB_video  S_bg1 WB_video_mini WB_video_h5_v2').length > 0 ? ele.getElementsByClassName('WB_video  S_bg1 WB_video_mini WB_video_h5_v2')[0] : ele.getElementsByClassName('WB_video  S_bg1 WB_video_mini WB_video_a WB_video_h5_v2').length > 0 ? ele.getElementsByClassName('WB_video  S_bg1 WB_video_mini WB_video_a WB_video_h5_v2')[0] : ele.getElementsByClassName('WB_video S_bg2 WB_video_mini WB_video_a WB_video_h5_v2').length > 0 ? ele.getElementsByClassName('WB_video S_bg2 WB_video_mini WB_video_a WB_video_h5_v2')[0] : '';
   if (parentNode != '' && parentNode.getElementsByClassName('down_button_class').length == 0) {
     let downButton = document.createElement('button');
-    let videoNode = ele.getElementsByClassName('wbv-tech')
+    let videoNode = parentNode.attributes['video-sources'].value // video的src用的是blob，因此使用li中的video-source地址
     if (videoNode.length > 0) {
-      let videoUrl = videoNode[0]['src'];
+      let videoUrl = videoNode.replace('fluency=','');
+      let downVideoUrl = unescape(videoUrl);
       downButton.setAttribute('style', 'position: absolute;right: 0;');
       downButton.setAttribute('class', 'down_button_class');
       downButton.setAttribute('id', 'down_button_' + (new Date()).getTime());
-      downButton.setAttribute('onclick', 'downWeiboVideo("' + videoUrl + '")');
-      // downButton.setAttribute('data', '"' + videoUrl + '"')
+      downButton.setAttribute('onclick', 'downWeiboVideo("' + unescape(downVideoUrl) + '")');
       downButton.innerText = '下载';
       parentNode.appendChild(downButton);
     }
